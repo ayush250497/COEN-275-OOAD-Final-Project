@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package topquiz;
 
 /**
@@ -26,15 +23,16 @@ public class HomeUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField1 = new javax.swing.JTextField();
+        spellingRadioButton = new javax.swing.JRadioButton();
+        geographyRadioButton = new javax.swing.JRadioButton();
+        nameField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        startQuiz = new javax.swing.JButton();
+        enterAdminUI = new javax.swing.JButton();
+        enterTeacherUI = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 51));
@@ -48,45 +46,43 @@ public class HomeUI extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Top Quiz");
 
-        jRadioButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(24, 167, 207));
-        jRadioButton1.setText("Spelling Test");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
+        buttonGroup1.add(spellingRadioButton);
+        spellingRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        spellingRadioButton.setForeground(new java.awt.Color(24, 167, 207));
+        spellingRadioButton.setText("Spelling Test");
 
-        jRadioButton2.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(24, 167, 207));
-        jRadioButton2.setText("Geography Test");
+        buttonGroup1.add(geographyRadioButton);
+        geographyRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        geographyRadioButton.setForeground(new java.awt.Color(24, 167, 207));
+        geographyRadioButton.setSelected(true);
+        geographyRadioButton.setText("Geography Test");
 
-        jTextField1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(24, 167, 207));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
+        nameField.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        nameField.setForeground(new java.awt.Color(24, 167, 207));
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(24, 167, 207));
         jLabel2.setText("Name:");
 
-        jButton1.setBackground(new java.awt.Color(24, 167, 207));
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Start Quiz");
+        startQuiz.setBackground(new java.awt.Color(24, 167, 207));
+        startQuiz.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        startQuiz.setForeground(new java.awt.Color(255, 255, 255));
+        startQuiz.setText("Start Quiz");
+        startQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                startQuizActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(24, 167, 207));
-        jButton2.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Admin");
+        enterAdminUI.setBackground(new java.awt.Color(24, 167, 207));
+        enterAdminUI.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        enterAdminUI.setForeground(new java.awt.Color(255, 255, 255));
+        enterAdminUI.setText("Admin");
 
-        jButton3.setBackground(new java.awt.Color(24, 167, 207));
-        jButton3.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Teacher");
+        enterTeacherUI.setBackground(new java.awt.Color(24, 167, 207));
+        enterTeacherUI.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
+        enterTeacherUI.setForeground(new java.awt.Color(255, 255, 255));
+        enterTeacherUI.setText("Teacher");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -97,21 +93,21 @@ public class HomeUI extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(geographyRadioButton)
+                            .addComponent(spellingRadioButton)
+                            .addComponent(startQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(112, 112, 112)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(261, 261, 261)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton2)
+                        .addComponent(enterAdminUI)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)))
+                        .addComponent(enterTeacherUI)))
                 .addContainerGap(205, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -122,19 +118,19 @@ public class HomeUI extends javax.swing.JFrame {
                 .addGap(116, 116, 116)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
+                        .addComponent(spellingRadioButton)
                         .addGap(18, 18, 18)
-                        .addComponent(jRadioButton2))
+                        .addComponent(geographyRadioButton))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(startQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 161, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(enterAdminUI)
+                    .addComponent(enterTeacherUI))
                 .addContainerGap())
         );
 
@@ -154,14 +150,28 @@ public class HomeUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void startQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startQuizActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
+        
+        String topic = this.getTopicOfTest();
+        String name = nameField.getText().toString();
+        
+        if (name == null || name.equals("")) new ValidationError().setVisible(true);
+        else{
+            new TestUI().setVisible(true);
+            this.dispose();
+        }
+        
+    }//GEN-LAST:event_startQuizActionPerformed
+    
+    private String getTopicOfTest() {
+        String topic = "Geography";
+        
+        if (spellingRadioButton.isSelected()) topic = "Spelling";
+        
+        return topic;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -198,14 +208,15 @@ public class HomeUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton enterAdminUI;
+    private javax.swing.JButton enterTeacherUI;
+    private javax.swing.JRadioButton geographyRadioButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JRadioButton spellingRadioButton;
+    private javax.swing.JButton startQuiz;
     // End of variables declaration//GEN-END:variables
 }
