@@ -11,4 +11,16 @@
         <maven.compiler.target>17</maven.compiler.target>
         <exec.mainClass>ambalkar.assign1.finalproject.FinalProject</exec.mainClass>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.32</version>
+        </dependency>
+        <dependency>
+            <groupId>org.netbeans.external</groupId>
+            <artifactId>AbsoluteLayout</artifactId>
+            <version>RELEASE150</version>
+        </dependency>
+    </dependencies>
 </project>

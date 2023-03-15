@@ -4,10 +4,18 @@
  */
 package admin;
 
+import java.util.List;
+
 /**
  *
  * @author omambalkar
  */
 public interface Question {
+    
+    public String getQuestion();
+    public String getAnswer();
+    public List<String> getOptions();
+    public String getMedia();
+    public String getType();
     
 }

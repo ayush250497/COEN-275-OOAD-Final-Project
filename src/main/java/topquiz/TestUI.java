@@ -4,6 +4,15 @@
  */
 package topquiz;
 
+import admin.Question;
+import admin.Test;
+import java.util.ArrayList;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author omambalkar
@@ -13,10 +22,24 @@ public class TestUI extends javax.swing.JFrame {
     /**
      * Creates new form TestUI
      */
+    
+    private Test test;
+    private ArrayList<Question> questions;
+    private int id;
+    private ButtonGroup bg;
+    private int testLength;
+    
     public TestUI() {
         initComponents();
-    }
+        bg = null;
+        test = new Test();
+        questions = test.getTest();
+        id = 0;
+        testLength = questions.size();
+        this.generateQuestion(id, questions.get(id));
 
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,41 +49,156 @@ public class TestUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        timeLabel = new javax.swing.JLabel();
+        nextButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        errorLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Submit");
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
 
-        jLabel1.setText("120");
+        timeLabel.setBackground(new java.awt.Color(24, 167, 207));
+        timeLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 36)); // NOI18N
+        timeLabel.setForeground(new java.awt.Color(24, 167, 207));
+        timeLabel.setText("120");
+
+        nextButton.setBackground(new java.awt.Color(24, 167, 207));
+        nextButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        nextButton.setForeground(new java.awt.Color(255, 255, 255));
+        nextButton.setText("Next");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(24, 167, 207));
+        jLabel1.setText("Timer:");
+
+        jPanel2.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
+
+        errorLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
+        errorLabel.setForeground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(errorLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(timeLabel)))
+                        .addGap(53, 53, 53))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(nextButton)
+                        .addGap(64, 64, 64))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timeLabel)
+                    .addComponent(jLabel1)
+                    .addComponent(errorLabel))
+                .addGap(4, 4, 4)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(nextButton)
+                .addGap(34, 34, 34))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(147, 147, 147)
-                .addComponent(jButton1)
-                .addContainerGap(181, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(25, 25, 25))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 156, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(88, 88, 88))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    
+    private String getSelectedButtonText(ButtonGroup buttonGroup) {
+        for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
+            AbstractButton button = buttons.nextElement();
 
+            if (button.isSelected()) {
+                return button.getText();
+            }
+        }
+        return null;
+    }
+    
+    
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
+        // TODO add your handling code here:
+        
+        String userAnswer = getSelectedButtonText(bg);
+        
+        if (userAnswer == null) {
+            errorLabel.setText("Please Select an Answer !!");
+            return;
+        }
+        id++;
+        if (id == testLength) {
+            this.dispose();
+        } else {
+            errorLabel.setText("");
+            this.generateQuestion(id, questions.get(id));
+        }
+        
+    }//GEN-LAST:event_nextButtonActionPerformed
+
+    
+    public void generateQuestion(int index, Question question) {
+        jPanel2.removeAll();
+        String questionText = (index+1) + ". " + question.getQuestion();
+        JLabel quesLabel = new JLabel();
+        quesLabel.setText(questionText);
+        quesLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        quesLabel.setForeground(new java.awt.Color(24, 167, 207));
+  
+        jPanel2.add(quesLabel);
+    
+        bg = new ButtonGroup();
+        
+        if (question.getType().equals("MCQ")) {
+            
+            for (String option: question.getOptions()) {
+                
+                JRadioButton newRadioButton = new JRadioButton();
+                newRadioButton.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); 
+                newRadioButton.setForeground(new java.awt.Color(24, 167, 207));
+                newRadioButton.setText(option);
+                
+                jPanel2.add(newRadioButton);
+                bg.add(newRadioButton);
+                               
+            }
+        }
+        jPanel2.revalidate();
+        jPanel2.repaint();
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -97,7 +235,11 @@ public class TestUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JButton nextButton;
+    private javax.swing.JLabel timeLabel;
     // End of variables declaration//GEN-END:variables
 }
