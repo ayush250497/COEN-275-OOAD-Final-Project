@@ -1,10 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package topquiz;
 
 import admin.Question;
+import admin.Student;
 import admin.Test;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -28,16 +26,26 @@ public class TestUI extends javax.swing.JFrame {
     private int id;
     private ButtonGroup bg;
     private int testLength;
+    private Student student;
+    private String topic;
     
     public TestUI() {
         initComponents();
+        this.dispose();
+        new HomeUI().setVisible(true);
+    }
+    
+    public TestUI(Student student, String topic) {
+        initComponents();
+        this.student = student;
+        this.topic = topic;
+        System.out.println(topic);
         bg = null;
         test = new Test();
         questions = test.getTest();
         id = 0;
         testLength = questions.size();
         this.generateQuestion(id, questions.get(id));
-
     }
     
     /**
@@ -157,8 +165,18 @@ public class TestUI extends javax.swing.JFrame {
             errorLabel.setText("Please Select an Answer !!");
             return;
         }
+        
+        if (questions.get(id).getAnswer().equals(userAnswer)) {
+            
+            if (this.topic.equals("Geography"))
+                this.student.getScore().incrementGeographyScore();
+            else this.student.getScore().incrementSpellingScore();
+            
+        }
+        
         id++;
         if (id == testLength) {
+            new ResultUI(this.student, topic).setVisible(true);
             this.dispose();
         } else {
             errorLabel.setText("");

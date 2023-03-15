@@ -1,6 +1,8 @@
 
 package topquiz;
 
+import admin.Student;
+
 /**
  *
  * @author omambalkar
@@ -157,8 +159,11 @@ public class HomeUI extends javax.swing.JFrame {
         String name = nameField.getText().toString();
         
         if (name == null || name.equals("")) new ValidationError().setVisible(true);
-        else{
-            new TestUI().setVisible(true);
+        else {
+            
+            Student student = new Student(name);
+            
+            new TestUI(student, topic).setVisible(true);
             this.dispose();
         }
         
