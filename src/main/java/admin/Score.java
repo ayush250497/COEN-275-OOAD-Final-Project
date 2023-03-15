@@ -14,6 +14,16 @@ public class Score {
     private int spellingScore;
     private int geographyScore;
     
+    public Score() {
+        this.spellingScore = 0;
+        this.geographyScore = 0;
+    }
+    
+    public Score(int spellingScore,int geographyScore) {
+        this.spellingScore = spellingScore;
+        this.geographyScore = geographyScore;
+    }
+    
     public void setSpellingScore(int score) {
         this.spellingScore = score;
     }

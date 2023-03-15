@@ -39,7 +39,6 @@ public class TestUI extends javax.swing.JFrame {
         initComponents();
         this.student = student;
         this.topic = topic;
-        System.out.println(topic);
         bg = null;
         test = new Test();
         questions = test.getTest();

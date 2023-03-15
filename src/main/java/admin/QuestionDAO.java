@@ -92,26 +92,11 @@ public class QuestionDAO {
                 }
                 
                 questions.add(ques);
-                System.out.println(type + " Inserted");
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(QuestionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return questions;
-    }
-    
-    public static void main(String args[]) {
-        QuestionDAO q = new QuestionDAO();
-//        q.createQuestionTable();
-
-//        q.insertInQuestionTable("What is ES6?", "MCQ", "JS, Version, Library", 3, "Version", null);
-
-        ArrayList<Question> test = q.selectQuestions();
-        
-        for (Question qu: test) {
-            System.out.print(qu.getQuestion());
-        }
-        
     }
 }

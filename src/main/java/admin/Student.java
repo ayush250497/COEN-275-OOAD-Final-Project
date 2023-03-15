@@ -18,6 +18,10 @@ public class Student {
         this.score = new Score();
     }
     
+    public Student(String name, Score score) {
+        this.name = name;
+        this.score = score;
+    }
     
     public String getName() {
         return this.name;     
