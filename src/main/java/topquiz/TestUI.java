@@ -6,6 +6,8 @@ import admin.Student;
 import admin.Test;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Timer;
+import java.util.TimerTask;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
@@ -28,6 +30,8 @@ public class TestUI extends javax.swing.JFrame {
     private int testLength;
     private Student student;
     private String topic;
+    private Timer timer;
+    private static int time;
     
     public TestUI() {
         initComponents();
@@ -45,6 +49,9 @@ public class TestUI extends javax.swing.JFrame {
         id = 0;
         testLength = questions.size();
         this.generateQuestion(id, questions.get(id));
+        time = 20;
+        timer = new Timer();
+        this.startTimer();
     }
     
     /**
@@ -143,6 +150,25 @@ public class TestUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
+    private void startTimer() {
+        
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                timeLabel.setText(String.valueOf(time));
+                time--;
+                if (time == 0) {
+                    new ResultUI(student, topic).setVisible(true);
+                    timer.cancel();
+                    TestUI.this.dispose();
+                }
+            }
+            
+        };
+        
+        timer.scheduleAtFixedRate(task, 0, 1000);
+    }
+    
     private String getSelectedButtonText(ButtonGroup buttonGroup) {
         for (Enumeration<AbstractButton> buttons = buttonGroup.getElements(); buttons.hasMoreElements();) {
             AbstractButton button = buttons.nextElement();
@@ -176,6 +202,7 @@ public class TestUI extends javax.swing.JFrame {
         id++;
         if (id == testLength) {
             new ResultUI(this.student, topic).setVisible(true);
+            timer.cancel();
             this.dispose();
         } else {
             errorLabel.setText("");
