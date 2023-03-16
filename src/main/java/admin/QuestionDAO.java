@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package admin;
 
 import java.sql.*;
@@ -19,7 +16,7 @@ public class QuestionDAO {
 
     public QuestionDAO() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/TopQuiz", "root", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionbank", "root", "");
             System.out.println("Connected");
         } catch (SQLException e) {
             e.printStackTrace();

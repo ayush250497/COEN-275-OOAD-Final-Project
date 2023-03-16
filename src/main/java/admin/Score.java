@@ -47,4 +47,8 @@ public class Score {
     public int getSpellingScore() {
         return this.spellingScore;
     }
+    
+    public int getTotal() {
+        return this.geographyScore + this.spellingScore;
+    }
 }

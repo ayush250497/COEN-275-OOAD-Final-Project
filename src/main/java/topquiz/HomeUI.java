@@ -39,6 +39,11 @@ public class HomeUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 51));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel1.setBackground(new java.awt.Color(255, 204, 204));
         jPanel1.setForeground(new java.awt.Color(242, 242, 242));
@@ -162,6 +167,51 @@ public class HomeUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         new Admin().setVisible(true);
     }//GEN-LAST:event_enterAdminUIActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        // TODO add your handling code here:
+        final int maxX = 500;
+        final int minX = 50;
+        
+        Thread animation = new Thread(new Runnable(){
+            @Override
+            public void run() {
+                int x = 20;
+                int y = 30;
+                boolean checked = true;
+                
+                while(true) {
+                    if (checked) {
+                        jLabel1.setLocation(x, y);
+                        x+=10; 
+                    } else {
+                        jLabel1.setLocation(x, y);
+                        x-=10;
+                    }
+                    
+                    if (x>maxX) {
+                        checked = false;
+                        x=500;
+                    }
+                    
+                    if(x<minX) {
+                        checked=true;
+                    }
+                    
+                    try {
+                        Thread.sleep(50);
+                    } catch(Exception e) {
+                        
+                    }
+                }
+                        
+            }
+            
+        });
+        animation.start();
+        
+        
+    }//GEN-LAST:event_formWindowOpened
 
     private void startQuizActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_startQuizActionPerformed
         // TODO add your handling code here:
