@@ -38,8 +38,8 @@ public class FIBType implements Question{
     }
 
     @Override
-    public String getMedia() {
-        return "";
+    public ArrayList<String> getMedia() {
+        return new ArrayList();
     }
     
     @Override

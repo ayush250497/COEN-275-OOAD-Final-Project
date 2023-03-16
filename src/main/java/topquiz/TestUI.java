@@ -38,12 +38,8 @@ public class TestUI extends javax.swing.JFrame {
     private String topic;
     private Timer timer;
     private static int time;
-<<<<<<< HEAD
     private int correctImage;
     
-=======
-
->>>>>>> 19279c4856db70a4ee02f4bb546003bcd987a3e9
     public TestUI() {
         initComponents();
         this.dispose();
