@@ -10,8 +10,14 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.border.*;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
@@ -32,6 +38,7 @@ public class TestUI extends javax.swing.JFrame {
     private String topic;
     private Timer timer;
     private static int time;
+    private int correctImage;
     
     public TestUI() {
         initComponents();
@@ -49,7 +56,8 @@ public class TestUI extends javax.swing.JFrame {
         id = 0;
         testLength = questions.size();
         this.generateQuestion(id, questions.get(id));
-        time = 20;
+        time = 30;
+        correctImage = 0;
         timer = new Timer();
         this.startTimer();
     }
@@ -183,20 +191,36 @@ public class TestUI extends javax.swing.JFrame {
     
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
+        if(questions.get(id).getType().equals("MCQ")){
+            String userAnswer = getSelectedButtonText(bg);
         
-        String userAnswer = getSelectedButtonText(bg);
-        
-        if (userAnswer == null) {
-            errorLabel.setText("Please Select an Answer !!");
-            return;
-        }
-        
-        if (questions.get(id).getAnswer().equals(userAnswer)) {
+            if (userAnswer == null) {
+                errorLabel.setText("Please Select an Answer !!");
+                return;
+            }
+
+            if (questions.get(id).getAnswer().equals(userAnswer)) {
+
+                if (this.topic.equals("Geography"))
+                    this.student.getScore().incrementGeographyScore();
+                else this.student.getScore().incrementSpellingScore();
+
+            }
+        }else if(questions.get(id).getType().equals("Interactive")){
+            String userAnswer = Integer.toString(this.correctImage);
             
-            if (this.topic.equals("Geography"))
-                this.student.getScore().incrementGeographyScore();
-            else this.student.getScore().incrementSpellingScore();
+            if (this.correctImage == 0) {
+                errorLabel.setText("Please Select an Image !!");
+                return;
+            }
             
+            if (questions.get(id).getAnswer().equals(userAnswer)) {
+
+                if (this.topic.equals("Geography"))
+                    this.student.getScore().incrementGeographyScore();
+                else this.student.getScore().incrementSpellingScore();
+
+            }
         }
         
         id++;
@@ -220,7 +244,7 @@ public class TestUI extends javax.swing.JFrame {
         quesLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
         quesLabel.setForeground(new java.awt.Color(24, 167, 207));
   
-        jPanel2.add(quesLabel);
+        jPanel2.add(quesLabel, BorderLayout.CENTER);
     
         bg = new ButtonGroup();
         
@@ -237,6 +261,42 @@ public class TestUI extends javax.swing.JFrame {
                 bg.add(newRadioButton);
                                
             }
+        } else if(question.getType().equals("Interactive")) {
+            int counter = 0;
+            JPanel interactivePanel = new JPanel(new FlowLayout());
+            
+            for (String media: question.getMedia()){
+                counter++;
+                final int selectedImage = counter;
+                JButton submitButton = new JButton();
+                JLabel imageLabel, questionLabel;
+                ImageIcon image;
+                int correctAnswer;
+                image = new ImageIcon(media);
+                imageLabel = new JLabel(image);
+                imageLabel.setPreferredSize(new Dimension(150,100));
+                imageLabel.addMouseListener(new MouseAdapter() {
+                    public void mouseClicked(MouseEvent e){
+                        for (Component c: interactivePanel.getComponents()){
+                            if(c instanceof JLabel){
+                                ((JLabel) c).setBorder(null);
+                            }
+                        }
+                        Border border = imageLabel.getBorder();
+                        if(border instanceof LineBorder && ((LineBorder) border).getLineColor().equals(Color.BLUE)){
+                            TestUI.this.correctImage = 0;
+                            imageLabel.setBorder(null);
+                        }else{
+                            TestUI.this.correctImage=selectedImage;
+                            imageLabel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                        }
+                    }  
+                  
+                });
+                interactivePanel.setBackground(new java.awt.Color(255,204,204));
+                interactivePanel.add(imageLabel);
+            }
+            jPanel2.add(interactivePanel);
         }
         jPanel2.revalidate();
         jPanel2.repaint();

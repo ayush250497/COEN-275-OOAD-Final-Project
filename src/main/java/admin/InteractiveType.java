@@ -17,20 +17,20 @@ public class InteractiveType implements Question{
     private String answer;
     private int noOfOptions;
     private String type;
-    private String media;
+    private ArrayList<String> media;
     
     
     public InteractiveType(String question, String options, String answer, int noOfOptions, String media, String type) {
         this.question = question;
-        this.options = this.changeOptions(options);
+        this.options = new ArrayList();
         this.answer = answer;
         this.noOfOptions = noOfOptions;
-        this.media = media;
+        this.media = this.changeOptions(media);
         this.type = type;
     }
     
-    private ArrayList<String> changeOptions(String options){
-        return new ArrayList<>(Arrays.asList(options.split(","))); 
+    private ArrayList<String> changeOptions(String media){
+        return new ArrayList<>(Arrays.asList(media.split(","))); 
     }
     
     @Override
@@ -49,8 +49,8 @@ public class InteractiveType implements Question{
     }
 
     @Override
-    public String getMedia() {
-        return media;
+    public ArrayList<String> getMedia() {     
+        return this.media;
     }
     
     @Override

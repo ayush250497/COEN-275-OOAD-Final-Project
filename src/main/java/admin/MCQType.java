@@ -48,8 +48,8 @@ public class MCQType implements Question{
     }
 
     @Override
-    public String getMedia() {
-        return "";
+    public ArrayList<String> getMedia() {
+        return new ArrayList();
     }
     
     @Override
