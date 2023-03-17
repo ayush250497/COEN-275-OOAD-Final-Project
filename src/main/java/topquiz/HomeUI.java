@@ -35,8 +35,6 @@ public class HomeUI extends javax.swing.JFrame {
         nameField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         startQuiz = new javax.swing.JButton();
-        enterAdminUI = new javax.swing.JButton();
-        enterTeacherUI = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 51));
@@ -83,26 +81,6 @@ public class HomeUI extends javax.swing.JFrame {
             }
         });
 
-        enterAdminUI.setBackground(new java.awt.Color(24, 167, 207));
-        enterAdminUI.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        enterAdminUI.setForeground(new java.awt.Color(255, 255, 255));
-        enterAdminUI.setText("Admin");
-        enterAdminUI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterAdminUIActionPerformed(evt);
-            }
-        });
-
-        enterTeacherUI.setBackground(new java.awt.Color(24, 167, 207));
-        enterTeacherUI.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
-        enterTeacherUI.setForeground(new java.awt.Color(255, 255, 255));
-        enterTeacherUI.setText("Teacher");
-        enterTeacherUI.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterTeacherUIActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -121,12 +99,7 @@ public class HomeUI extends javax.swing.JFrame {
                             .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(261, 261, 261)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(enterAdminUI)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(enterTeacherUI)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 342, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(205, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -146,11 +119,7 @@ public class HomeUI extends javax.swing.JFrame {
                         .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35)
                 .addComponent(startQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 123, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(enterAdminUI)
-                    .addComponent(enterTeacherUI))
-                .addContainerGap())
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -168,11 +137,6 @@ public class HomeUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void enterTeacherUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterTeacherUIActionPerformed
-        // TODO add your handling code here:
-        new TeacherUI().setVisible(true);
-    }//GEN-LAST:event_enterTeacherUIActionPerformed
 
     private void enterAdminUIActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_enterAdminUIActionPerformed
         // TODO add your handling code here:
@@ -291,8 +255,6 @@ public class HomeUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton enterAdminUI;
-    private javax.swing.JButton enterTeacherUI;
     private javax.swing.JRadioButton geographyRadioButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

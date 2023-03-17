@@ -266,7 +266,7 @@ public class TestUI extends javax.swing.JFrame {
         String questionText = (index + 1) + ". " + question.getQuestion();
         JLabel quesLabel = new JLabel();
         quesLabel.setText(questionText);
-        quesLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+        quesLabel.setFont(new java.awt.Font("Comic Sans MS", 0, 20)); // NOI18N
         quesLabel.setForeground(new java.awt.Color(24, 167, 207));
         jPanel2.add(quesLabel, BorderLayout.CENTER);
     
