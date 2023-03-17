@@ -16,7 +16,7 @@ public class QuestionDAO {
 
     public QuestionDAO() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionbank", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionbank", "root", "password");
             System.out.println("Connected");
         } catch (SQLException e) {
             e.printStackTrace();

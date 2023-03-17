@@ -23,7 +23,7 @@ public class StudentDAO {
 
     public StudentDAO() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionbank", "root", "");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionbank", "root", "password");
             System.out.println("Connected");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -118,6 +118,7 @@ public class StudentDAO {
 
         return students;
     }
+
     public double getTotal() {
         double total = 0;
         String sql = "Select count(*) as countOfStudents from studentTable";
@@ -131,50 +132,51 @@ public class StudentDAO {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
+
         return total;
     }
+
     public double getPercentileForSpellingScore(Student student, double total) {
         double percentile = 0.0;
         double cS = 0;
-        String sql = "Select count(*) as countOfStudents from studentTable where spelling_score < " + student.getScore().getSpellingScore();
+        String sql = "Select count(*) as countOfStudents from studentTable where spelling_score < "
+                + student.getScore().getSpellingScore();
         try (
                 Statement statement = this.connection.createStatement();
                 ResultSet rs = statement.executeQuery(sql);) {
             while (rs.next()) {
                 cS = Integer.parseInt(rs.getString("countOfStudents"));
-                
+
             }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        percentile = cS/total;
-        return percentile*100;
+        percentile = cS / total;
+        return percentile * 100;
     }
-    
+
     public double getPercentileForGeographyScore(Student student, double total) {
         double percentile;
         double cS = 0;
-        String sql = "Select count(*) as countOfStudents from studentTable where geography_score < " + student.getScore().getGeographyScore();
+        String sql = "Select count(*) as countOfStudents from studentTable where geography_score < "
+                + student.getScore().getGeographyScore();
         try (
                 Statement statement = this.connection.createStatement();
                 ResultSet rs = statement.executeQuery(sql);) {
             while (rs.next()) {
                 cS = Integer.parseInt(rs.getString("countOfStudents"));
-                System.out.println("cSgeo: "+cS);
+                System.out.println("cSgeo: " + cS);
             }
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        
-        System.out.println("total: "+total);
-        System.out.println("cSgeo: "+cS);
-        percentile = Double.valueOf(cS/total);
-        System.out.println("percentile: "+percentile);
-        return percentile*100;
+
+        System.out.println("total: " + total);
+        System.out.println("cSgeo: " + cS);
+        percentile = Double.valueOf(cS / total);
+        System.out.println("percentile: " + percentile);
+        return percentile * 100;
     }
-    
-    
 }

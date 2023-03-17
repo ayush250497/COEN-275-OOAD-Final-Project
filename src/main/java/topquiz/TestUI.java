@@ -285,7 +285,9 @@ public class TestUI extends javax.swing.JFrame {
             }
         } else if(question.getType().equals("FIB")) {
             field = new JTextField();
-            jPanel2.add(field);
+            field.setFont(new java.awt.Font("Comic Sans MS", 0, 24)); // NOI18N
+            field.setForeground(new java.awt.Color(24, 167, 207));
+            jPanel2.add(field, BorderLayout.CENTER);
         } else if(question.getType().equals("Interactive")) {
             int counter = 0;
             JPanel interactivePanel = new JPanel(new FlowLayout());

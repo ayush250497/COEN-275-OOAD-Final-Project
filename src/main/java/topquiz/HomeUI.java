@@ -23,6 +23,7 @@ public class HomeUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -96,6 +97,11 @@ public class HomeUI extends javax.swing.JFrame {
         enterTeacherUI.setFont(new java.awt.Font("Comic Sans MS", 0, 18)); // NOI18N
         enterTeacherUI.setForeground(new java.awt.Color(255, 255, 255));
         enterTeacherUI.setText("Teacher");
+        enterTeacherUI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterTeacherUIActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -163,55 +169,59 @@ public class HomeUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enterAdminUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterAdminUIActionPerformed
+    private void enterTeacherUIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterTeacherUIActionPerformed
+        // TODO add your handling code here:
+        new TeacherUI().setVisible(true);
+    }//GEN-LAST:event_enterTeacherUIActionPerformed
+
+    private void enterAdminUIActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_enterAdminUIActionPerformed
         // TODO add your handling code here:
         new Admin().setVisible(true);
-    }//GEN-LAST:event_enterAdminUIActionPerformed
+    }// GEN-LAST:event_enterAdminUIActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {// GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
         final int maxX = 500;
         final int minX = 50;
-        
-        Thread animation = new Thread(new Runnable(){
+
+        Thread animation = new Thread(new Runnable() {
             @Override
             public void run() {
                 int x = 20;
                 int y = 30;
                 boolean checked = true;
-                
-                while(true) {
+
+                while (true) {
                     if (checked) {
                         jLabel1.setLocation(x, y);
-                        x+=10; 
+                        x += 10;
                     } else {
                         jLabel1.setLocation(x, y);
-                        x-=10;
+                        x -= 10;
                     }
-                    
-                    if (x>maxX) {
+
+                    if (x > maxX) {
                         checked = false;
-                        x=500;
+                        x = 500;
                     }
-                    
-                    if(x<minX) {
-                        checked=true;
+
+                    if (x < minX) {
+                        checked = true;
                     }
-                    
+
                     try {
                         Thread.sleep(50);
-                    } catch(Exception e) {
-                        
+                    } catch (Exception e) {
+
                     }
                 }
-                        
+
             }
-            
+
         });
         animation.start();
-        
-        
-    }//GEN-LAST:event_formWindowOpened
+
+    }// GEN-LAST:event_formWindowOpened
 
     private void startQuizActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_startQuizActionPerformed
         // TODO add your handling code here:
