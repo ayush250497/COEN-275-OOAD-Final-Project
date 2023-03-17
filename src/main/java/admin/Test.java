@@ -9,17 +9,12 @@ import java.util.ArrayList;
  */
 public class Test {
     
-    private ArrayList<Question> questions;
+    public Test() {}
     
-    public Test() {
+    public ArrayList<Question> getTest(String topic) {
+        
         QuestionDAO qDao = new QuestionDAO();
-        questions = qDao.selectQuestions();
-    }
-    
-    public ArrayList<Question> getTest() {
-        
-        
-        return this.questions;
+        return qDao.selectQuestions(topic);
     }
     
 }

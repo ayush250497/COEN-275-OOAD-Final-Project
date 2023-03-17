@@ -39,6 +39,7 @@ public class TestUI extends javax.swing.JFrame {
     private Timer timer;
     private static int time;
     private int correctImage;
+    private JTextField field;
     
     public TestUI() {
         initComponents();
@@ -52,7 +53,7 @@ public class TestUI extends javax.swing.JFrame {
         this.topic = topic;
         bg = null;
         test = new Test();
-        questions = test.getTest();
+        questions = test.getTest(topic);
         id = 0;
         testLength = questions.size();
         this.generateQuestion(id, questions.get(id));
@@ -197,7 +198,7 @@ public class TestUI extends javax.swing.JFrame {
 
     private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_nextButtonActionPerformed
         // TODO add your handling code here:
-        if(questions.get(id).getType().equals("MCQ")){
+        if (questions.get(id).getType().equals("MCQ")){
             String userAnswer = getSelectedButtonText(bg);
         
             if (userAnswer == null) {
@@ -212,7 +213,21 @@ public class TestUI extends javax.swing.JFrame {
                 else this.student.getScore().incrementSpellingScore();
 
             }
-        }else if(questions.get(id).getType().equals("Interactive")){
+        } else if(questions.get(id).getType().equals("FIB")){
+            String userAnswer = field.getText();
+            if (userAnswer == null) {
+                errorLabel.setText("Please Enter an Answer !!");
+                return;
+            }
+
+            if (questions.get(id).getAnswer().equals(userAnswer)) {
+
+                if (this.topic.equals("Geography"))
+                    this.student.getScore().incrementGeographyScore();
+                else this.student.getScore().incrementSpellingScore();
+
+            }
+        } else if(questions.get(id).getType().equals("Interactive")){
             String userAnswer = Integer.toString(this.correctImage);
             
             if (this.correctImage == 0) {
@@ -268,6 +283,9 @@ public class TestUI extends javax.swing.JFrame {
                 bg.add(newRadioButton);
 
             }
+        } else if(question.getType().equals("FIB")) {
+            field = new JTextField();
+            jPanel2.add(field);
         } else if(question.getType().equals("Interactive")) {
             int counter = 0;
             JPanel interactivePanel = new JPanel(new FlowLayout());

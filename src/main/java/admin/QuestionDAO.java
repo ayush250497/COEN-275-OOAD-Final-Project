@@ -66,8 +66,8 @@ public class QuestionDAO {
         }
     }
 
-    public ArrayList<Question> selectQuestions() {
-        String selectAllSql = "Select * from questionTable";
+    public ArrayList<Question> selectQuestions(String topic) {
+        String selectAllSql = "Select * from questionTable where topic = '" + topic+ "'";
         ArrayList<Question> questions = new ArrayList<>();
         try (
                 Statement statement = this.connection.createStatement();
@@ -96,5 +96,10 @@ public class QuestionDAO {
             Logger.getLogger(QuestionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return questions;
+    }
+    
+    public static void main(String[] args) {
+        QuestionDAO dao = new QuestionDAO();
+        dao.createQuestionTable();
     }
 }
