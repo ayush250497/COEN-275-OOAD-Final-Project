@@ -40,7 +40,7 @@ public class TestUI extends javax.swing.JFrame {
     private static int time;
     private int correctImage;
     private JTextField field;
-    
+    private ArrayList<String> gameUserAnswer;
     public TestUI() {
         initComponents();
         this.dispose();
@@ -57,7 +57,7 @@ public class TestUI extends javax.swing.JFrame {
         id = 0;
         testLength = questions.size();
         this.generateQuestion(id, questions.get(id));
-        time = 30;
+        time = 120;
         correctImage = 0;
         timer = new Timer();
         this.startTimer();
@@ -70,7 +70,7 @@ public class TestUI extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -112,56 +112,50 @@ public class TestUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap(39, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout
-                                                .createSequentialGroup()
-                                                .addGroup(jPanel1Layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                false)
-                                                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                798, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addGap(47, 47, 47)
-                                                                .addComponent(errorLabel)
-                                                                .addPreferredGap(
-                                                                        javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                        Short.MAX_VALUE)
-                                                                .addComponent(jLabel1)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(timeLabel)))
-                                                .addGap(53, 53, 53))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                jPanel1Layout.createSequentialGroup()
-                                                        .addComponent(nextButton)
-                                                        .addGap(64, 64, 64)))));
-        jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(timeLabel)
-                                        .addComponent(jLabel1)
-                                        .addComponent(errorLabel))
-                                .addGap(4, 4, 4)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 798, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(errorLabel)
+                                .addGap(733, 733, 733)
+                                .addComponent(jLabel1)
                                 .addGap(18, 18, 18)
-                                .addComponent(nextButton)
-                                .addGap(34, 34, 34)));
+                                .addComponent(timeLabel)))
+                        .addGap(53, 53, 53))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(nextButton)
+                        .addGap(64, 64, 64))))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timeLabel)
+                    .addComponent(jLabel1)
+                    .addComponent(errorLabel))
+                .addGap(4, 4, 4)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(nextButton)
+                .addGap(34, 34, 34))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -242,6 +236,17 @@ public class TestUI extends javax.swing.JFrame {
                 else this.student.getScore().incrementSpellingScore();
 
             }
+        } else {
+            String userAnswer = String.join("", gameUserAnswer);
+            System.out.println(userAnswer);
+            System.out.println(questions.get(id).getAnswer());
+            if (questions.get(id).getAnswer().equals(userAnswer)) {
+
+                if (this.topic.equals("Geography"))
+                    this.student.getScore().incrementGeographyScore();
+                else this.student.getScore().incrementSpellingScore();
+
+            }
         }
 
         id++;
@@ -290,7 +295,7 @@ public class TestUI extends javax.swing.JFrame {
             jPanel2.add(field, BorderLayout.CENTER);
         } else if(question.getType().equals("Interactive")) {
             int counter = 0;
-            JPanel interactivePanel = new JPanel(new FlowLayout());
+            JPanel interactivePanel = new JPanel(new GridLayout());
             
             for (String media: question.getMedia()){
                 counter++;
@@ -301,7 +306,7 @@ public class TestUI extends javax.swing.JFrame {
                 int correctAnswer;
                 image = new ImageIcon(media);
                 imageLabel = new JLabel(image);
-                imageLabel.setPreferredSize(new Dimension(150,100));
+                imageLabel.setPreferredSize(new Dimension(50,50));
                 imageLabel.addMouseListener(new MouseAdapter() {
                     public void mouseClicked(MouseEvent e){
                         for (Component c: interactivePanel.getComponents()){
@@ -324,6 +329,59 @@ public class TestUI extends javax.swing.JFrame {
                 interactivePanel.add(imageLabel);
             }
             jPanel2.add(interactivePanel);
+        } else {
+            gameUserAnswer = new ArrayList<>();
+            JPanel answerPanel = new JPanel(new FlowLayout());
+            JPanel questionPanel = new JPanel(new FlowLayout());
+            
+            JButton redoButton = new JButton();
+            redoButton.setPreferredSize(new Dimension(40, 40));
+            redoButton.setBackground(new java.awt.Color(24, 167, 207));
+            redoButton.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+            redoButton.setForeground(new java.awt.Color(255, 153, 153));
+            redoButton.setText("Redo");
+            redoButton.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        answerPanel.removeAll();
+                        gameUserAnswer.clear();
+                        jPanel2.revalidate();
+                        jPanel2.repaint();
+
+                    }
+                });
+            
+            jPanel2.add(redoButton);
+            
+            char[] word = question.getOptions().get(0).toCharArray();
+            int length = question.getOptions().get(0).length();
+            answerPanel.setPreferredSize(new Dimension(100, 100));
+            questionPanel.setPreferredSize(new Dimension(50, 50));
+            for(int i = 0; i<length;i++){
+                final String letter = String.valueOf(word[i]);
+                JButton jButton2 = new JButton();
+                jButton2.setPreferredSize(new Dimension(40, 40));
+                jButton2.setBackground(new java.awt.Color(24, 167, 207));
+                jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+                jButton2.setForeground(new java.awt.Color(255, 153, 153));
+                jButton2.setText(String.valueOf(word[i]));
+                jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+                jButton2.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        JLabel letterAdded = new JLabel();
+                        letterAdded.setFont(new java.awt.Font("Comic Sans MS", 1, 36));
+                        letterAdded.setBackground(new java.awt.Color(255, 102, 102));
+                        letterAdded.setForeground(new java.awt.Color(255, 255, 0));
+                        letterAdded.setText(letter);
+                        letterAdded.setOpaque(true);
+                        answerPanel.add(letterAdded);
+                        gameUserAnswer.add(letter);
+                    }
+                });
+                questionPanel.add(jButton2);
+            }
+            jPanel2.add(answerPanel);
+            jPanel2.add(questionPanel);
+            
         }
         jPanel2.revalidate();
         jPanel2.repaint();
@@ -334,15 +392,7 @@ public class TestUI extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        // <editor-fold defaultstate="collapsed" desc=" Look and feel setting code
-        // (optional) ">
-        /*
-         * If Nimbus (introduced in Java SE 6) is not available, stay with the default
-         * look and feel.
-         * For details see
-         * http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-         */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {

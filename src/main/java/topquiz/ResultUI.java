@@ -24,10 +24,10 @@ public class ResultUI extends javax.swing.JFrame {
         initComponents();
 
         if (topic.equals("Geography")) {
-            scoreLabel.setText(String.valueOf(student.getScore().getGeographyScore()));
+            scoreLabel.setText(String.valueOf(student.getScore().getGeographyScore())+ "/10");
             topicLabel.setText("WELL DONE " + student.getName() + " !!");
         } else {
-            scoreLabel.setText(String.valueOf(student.getScore().getSpellingScore()));
+            scoreLabel.setText(String.valueOf(student.getScore().getSpellingScore()) + "/10");
             topicLabel.setText("WELL DONE " + student.getName() + " !!");
         }
 

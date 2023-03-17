@@ -22,7 +22,7 @@ public class InteractiveType implements Question{
     
     public InteractiveType(String question, String options, String answer, int noOfOptions, String media, String type) {
         this.question = question;
-        this.options = new ArrayList();
+        this.options = this.changeOptions(options);
         this.answer = answer;
         this.noOfOptions = noOfOptions;
         this.media = this.changeOptions(media);

@@ -23,7 +23,7 @@ public class StudentDAO {
 
     public StudentDAO() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionbank", "root", "password");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/questionbank", "root", "");
             System.out.println("Connected");
         } catch (SQLException e) {
             e.printStackTrace();
